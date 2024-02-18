@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <div class="row mt-5" >
+        <div class="col-lg-4"> <img src="{% static 'images/tasklist.png' %}" alt="Tasklist" class="rounded-3" width="360" height="360"></div>
+        <div class="col-lg-4"> <img src="{% static 'images/tasklist.png' %}" alt="Tasklist" class="rounded-3" width="360" height="360"></div>
+        <div class="col-lg-4"> <img src="{% static 'images/tasklist.png' %}" alt="Tasklist" class="rounded-3" width="360" height="360"></div>
+    </div>
+</div>
+<div class="row md-10 offset-md-1 text-center">
+    <p class="h1"> Quick and easy to use, anytime, anywhere </p>
+    <p class="h2"> Plan yor life better, get your life organized </p>
+    <p class="h5"> TASK Lets you keep everything in one place</p>
+    <p> </p>
+    <center><a href="{% url 'register' %}"> <button type="submit" class="btn btn-primary shadow mt-3">Login</button></a></center>
+    <p> </p>
+    <center><a href="{% url 'todolist' %}"> <button type="submit" class="btn btn-primary shadow">Get Started</button></a></center>
+</div>
+
+{% endblock content %}
