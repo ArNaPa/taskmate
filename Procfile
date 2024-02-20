@@ -1,1 +1,1 @@
-web: python manage.py migrate gunicorn taskmate.wsgi            # Comando inicial a ejecutardurante el deploy
+web: python manage.py migrate && gunicorn taskmate.wsgi            # Comando inicial a ejecutar durante el deploy
