@@ -10,13 +10,14 @@
         <br>
         <form method="POST">
             {% csrf_token %}
-            {% if task.manage == request.user %}
+            {% if task_obj.manage == request.user %}
                 <div><input type="hidden" name="done" value="{{ task_obj.done }}"></div>
                     <div class="row g-2 align-items-center">
                 <div class="col-lg-3"><label></label></div>
                 <div class="col-lg-4"><input type="text" class="form-control" name="task" value="{{ task_obj.task }}"></div>
                 <div class="col-lg-2"><button type="submit" class="btn btn-primary">Update Task</button></div>
             {% else %}
+
                 <p> Access Restricted <p>
             {% endif %}
         </form>
