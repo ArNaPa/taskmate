@@ -10,6 +10,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import os
 import environ
 from pathlib import Path
+import dj_database_url                  # For external database
 
 import whitenoise.middleware
 
@@ -90,17 +91,22 @@ WSGI_APPLICATION = 'taskmate.wsgi.application'
 # }
 
 # POSTGRES DATABASE
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': env('DB_NAME'),
-        'USER': env('DB_USER'),
-        'PASSWORD': env('DB_PASSWORD'),
-        'HOST': env('DB_HOST'),
-        'PUERTO': env('DB_PUERTO'),
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': env('DB_NAME'),
+#         'USER': env('DB_USER'),
+#         'PASSWORD': env('DB_PASSWORD'),
+#         'HOST': env('DB_HOST'),
+#         'PUERTO': env('DB_PUERTO'),
+#     }
+# }
 
+# EXTERNAL DATABASE
+database_url = os.environ.get("DB_URL")
+DATABASES = {
+    'default': dj_database_url.parse(database_url)
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
