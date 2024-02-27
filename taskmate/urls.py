@@ -26,4 +26,5 @@ urlpatterns = [
 
     path('contact/', todolist_views.contact, name='contact'),
     path('about/', todolist_views.about, name='about'),
+    path('api/', include('todolist_app.api_urls')),
 ]
